@@ -1,0 +1,23 @@
+id:   Mail2Backlog
+key:  mail2backlog
+name: Mail2Backlog
+author_link: http://alfasado.net/
+author_name: Alfasado Inc.
+version: 1.0
+description: '<__trans phrase="Create issue of Backlog from email.">'
+system_config_template: mail2backlog_cfg.tmpl
+blog_config_template: mail2backlog_cfg.tmpl
+l10n_class: Mail2Backlog::L10N
+settings:
+    backlog_space:
+    backlog_username:
+    backlog_password:
+    backlog_projectId:
+    backlog_use_system_settings:
+    backlog_issueTypeId:
+    backlog_issueComponentId:
+    backlog_assignerId:
+    backlog_issueMilestoneId:
+    backlog_token:
+callbacks:
+    mail_filter: $mail2backlog::Mail2Backlog::Plugin::create_issue

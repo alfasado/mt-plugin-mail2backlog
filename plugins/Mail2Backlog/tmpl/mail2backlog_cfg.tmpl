@@ -1,0 +1,86 @@
+<mt:if name="request.blog_id">
+<mtapp:setting
+    id="backlog_use_system_settings"
+    label="<__trans phrase="Settings">">
+<ul>
+<li><label><input type="checkbox" id="backlog_use_system_settings" name="backlog_use_system_settings" value="1"
+<mt:if name="backlog_use_system_settings">
+    checked="checked"
+</mt:if>
+/> <__trans phrase="Using the Syatem Plugin Settings"></label></li>
+</ul>
+<script type="text/javascript">
+jQuery( '#backlog_use_system_settings' ).click( function() {
+    jQuery( '#backlog_plugin_settings' ).slideToggle( this.checked );
+});
+</script>
+<input type="hidden" name="backlog_use_system_settings" value="0" />
+</mtapp:setting>
+</mt:if>
+<div id="backlog_plugin_settings" <mt:if name="backlog_use_system_settings">style="display:none"</mt:if>>
+<mtapp:setting
+    id="backlog_space"
+    label="<__trans phrase="Space ID">">
+<ul>
+<li><input type="text" id="backlog_space" name="backlog_space" value="<mt:var name="backlog_space" escape="html">" /></li>
+</ul>
+</mtapp:setting>
+<mtapp:setting
+    id="backlog_username"
+    label="<__trans phrase="Username">">
+<ul>
+<li><input type="text" id="backlog_username" name="backlog_username" value="<mt:var name="backlog_username" escape="html">" /></li>
+</ul>
+</mtapp:setting>
+<mtapp:setting
+    id="backlog_password"
+    label="<__trans phrase="Password">">
+<ul>
+<li><input type="password" id="backlog_password" name="backlog_password" value="<mt:var name="backlog_password" escape="html">" /></li>
+</ul>
+</mtapp:setting>
+<mtapp:setting
+    id="backlog_projectId"
+    label="<__trans phrase="Project ID">">
+<ul>
+<li><input type="text" id="backlog_projectId" name="backlog_projectId" value="<mt:var name="backlog_projectId" escape="html">" /></li>
+</ul>
+</mtapp:setting>
+<mtapp:setting
+    id="backlog_issueTypeId"
+    label="<__trans phrase="Issue Type ID">">
+<ul>
+<li><input type="text" id="backlog_issueTypeId" name="backlog_issueTypeId" value="<mt:var name="backlog_issueTypeId" escape="html">" /></li>
+</ul>
+</mtapp:setting>
+<mtapp:setting
+    id="backlog_issueComponentId"
+    label="<__trans phrase="Component ID">">
+<ul>
+<li><input type="text" id="backlog_issueComponentId" name="backlog_issueComponentId" value="<mt:var name="backlog_issueComponentId" escape="html">" /></li>
+</ul>
+</mtapp:setting>
+<mtapp:setting
+    id="backlog_assignerId"
+    label="<__trans phrase="Assigner ID">">
+<ul>
+<li><input type="text" id="backlog_assignerId" name="backlog_assignerId" value="<mt:var name="backlog_assignerId" escape="html">" /></li>
+</ul>
+</mtapp:setting>
+<mtapp:setting
+    id="backlog_issueMilestoneId"
+    label="<__trans phrase="Milestone ID">">
+<ul>
+<li><input type="text" id="backlog_issueMilestoneId" name="backlog_issueMilestoneId" value="<mt:var name="backlog_issueMilestoneId" escape="html">" /></li>
+</ul>
+</mtapp:setting>
+<mtapp:setting
+    id="backlog_token"
+    hint="<__trans phrase="Create issue when email contains this phrase.">"
+    show_hint="1"
+    label="<__trans phrase="Phrase">">
+<ul>
+<li><input type="text" id="backlog_token" name="backlog_token" value="<mt:var name="backlog_token" escape="html">" /></li>
+</ul>
+</mtapp:setting>
+</div>
