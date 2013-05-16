@@ -55,7 +55,6 @@ sub create_issue {
     $params->{ assignerId }  = $backlog_assignerId if $backlog_assignerId;
     $params->{ milestoneId } = $backlog_issueMilestoneId if $backlog_issueMilestoneId;
     $params->{ priorityId }  = $backlog_priorityId;
-    backlog_priorityId
     if ( $app->run_callbacks( 'backlog_pre_create_issue', $app, $params ) ) {
         my $issue = WebService::Backlog::CreateIssue->new( $params );
         my $created_issue = $backlog->createIssue( $issue );
