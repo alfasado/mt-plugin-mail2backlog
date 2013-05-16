@@ -28,6 +28,7 @@ sub create_issue {
     my $backlog_issueComponentId = $plugin->get_config_value( 'backlog_issueComponentId', $scope );
     my $backlog_assignerId = $plugin->get_config_value( 'backlog_assignerId', $scope );
     my $backlog_issueMilestoneId = $plugin->get_config_value( 'backlog_issueMilestoneId', $scope );
+    my $backlog_priorityId = $plugin->get_config_value( 'backlog_priorityId', $scope );
     my $headers = $params{ headers };
     my $body = $params{ body };
     my $subject = $headers->{ Subject };
@@ -51,8 +52,10 @@ sub create_issue {
     };
     $params->{ issueTypeId } = $backlog_issueTypeId if $backlog_issueTypeId;
     $params->{ componentId } = $backlog_issueComponentId if $backlog_issueComponentId;
-    $params->{ assignerId } = $backlog_assignerId if $backlog_assignerId;
+    $params->{ assignerId }  = $backlog_assignerId if $backlog_assignerId;
     $params->{ milestoneId } = $backlog_issueMilestoneId if $backlog_issueMilestoneId;
+    $params->{ priorityId }  = $backlog_priorityId;
+    backlog_priorityId
     if ( $app->run_callbacks( 'backlog_pre_create_issue', $app, $params ) ) {
         my $issue = WebService::Backlog::CreateIssue->new( $params );
         my $created_issue = $backlog->createIssue( $issue );

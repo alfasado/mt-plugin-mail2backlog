@@ -68,10 +68,16 @@ jQuery( '#backlog_use_system_settings' ).click( function() {
 </ul>
 </mtapp:setting>
 <mtapp:setting
-    id="backlog_issueMilestoneId"
-    label="<__trans phrase="Milestone ID">">
+    id="backlog_priorityId"
+    label="<__trans phrase="Priority">">
 <ul>
-<li><input type="text" id="backlog_issueMilestoneId" name="backlog_issueMilestoneId" value="<mt:var name="backlog_issueMilestoneId" escape="html">" /></li>
+<li>
+<select name="backlog_priorityId" id="backlog_priorityId">
+    <option value="2" <mt:if name="backlog_priorityId" eq="2">selected="selected"</mt:if>><__trans phrase="Low"></option>
+    <option value="3" <mt:if name="backlog_priorityId" eq="3">selected="selected"</mt:if>><__trans phrase="Normal"></option>
+    <option value="4" <mt:if name="backlog_priorityId" eq="4">selected="selected"</mt:if>><__trans phrase="High"></option>
+</select>
+</li>
 </ul>
 </mtapp:setting>
 <mtapp:setting
