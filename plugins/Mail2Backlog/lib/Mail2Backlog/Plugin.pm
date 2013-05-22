@@ -36,7 +36,7 @@ sub create_issue {
     $body = encode_utf8( decode( 'iso-2022-jp', $$body ) );
     if ( $backlog_token ) {
         $backlog_token = quotemeta( $backlog_token );
-        if ( $body !~ /$backlog_token/ ) {
+        if ( decode_utf8( $body ) !~ /$backlog_token/ ) {
             return 1;
         }
     }
